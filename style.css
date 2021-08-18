@@ -1,0 +1,87 @@
+body {
+	font-size: 20px;
+	background-color: #484585;
+	font-family: Helvetica,sans-serif;
+}
+
+h1 {
+	font-size: 40px;
+	text-align: center;
+}
+
+/*----------- Form Styling---------*/
+
+.container{
+		margin-top: 35px;
+	}
+	body {
+		font-family: all;
+		background: rgba(2, 0, 36, 1.0);
+
+	}
+	h1{
+		text-align: center;
+		color: #fff;
+	}
+	#form{
+		background-color: rgba(0, 0, 0, 0.6);
+	}
+	.btn-info{
+		transition: 0.5s ease-in-out;
+		background: rgb(2, 0, 36);
+		height: 40px;
+		font-size: 18px;
+		width: 83%;
+		color: #fff;
+	}
+
+/*------------Homepage Styling------------------*/
+/*----
+#refresh {
+	padding: 15px;
+	border-radius: 15%;
+	text-align: center;
+	font-size: 28px;
+	width: 40%;
+	margin: 30px;
+}
+
+#addContact {
+	padding: 15px;
+	border-radius: 15%;
+	text-align: center;
+	font-size: 28px;
+	width: 40%;
+	position: right;
+	margin: 30px;
+}
+---*/
+table, th, td {
+	/*border-collapse: collapse;
+	width: 70%; 
+  border: 1px solid black;
+}
+
+#table .singleContact {
+	padding: 20px;
+	margin: 30px;
+	background-color: grey;
+	width: 100%;
+	cursor: pointer;
+}
+
+#table td {
+	width: 30%;
+	
+}
+
+#table td .name{
+	width: 40px;
+}
+
+#table .center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+*/

@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Contact Book Plus</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body onload="fetchContacts()">
+        
+        <div id="table">Contacts loading...</div>
+        
+    <center>
+        <button id="refresh" type="button" class="btn btn-primary badge-pill btn-lg" style="width:150px;">Refresh</button>
+        <button id="addContact" type="button" class="btn btn-primary badge-pill btn-lg">Add Contact</button>
+    </center>
+    <br>
+    <br>
+
+ 
+        
+        <script src="config.js"></script>
+        <script>
+            document.getElementById("refresh").addEventListener('click', fetchContacts);
+            document.getElementById("addContact").addEventListener('click', addContact);
+            
+            
+            function fetchContacts(){
+                fetch(rootPath + "controller/get-contacts/")
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(data){
+                    displayOutput(data);
+                   
+                })
+            }
+            
+            function displayOutput(data){
+                output = "<table>";
+                
+                for(a in data){
+                    output += `
+
+                    <table class="table table-dark table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col"> Profile avatar </th>
+                                <th scope="col"> First Name </th>
+                                <th scope="col"> Last Name </th>
+                         </tr>
+                        </thead>
+
+                    <tbody>
+                        <tr onclick="editContact(${data[a].id})">
+                            <td><img src="${rootPath}controller/uploads/${data[a].avatar}" width="40"/></td>
+                            <td><h5>${data[a].firstname}</h5></td>
+                            <td><h5>${data[a].lastname}</h5></td>
+                            
+                        </tr>
+                    </tbody>
+                    </table>
+
+                    `
+                }
+                output += "</table>";
+                document.getElementById("table").innerHTML =output;
+            }
+            
+            function addContact(){
+                window.open("add-Contact.html", "_self");
+            }
+            
+            function editContact(id){
+                window.open("edit-contact.html?id=" + id, "_self")
+            }
+            
+        </script>
+    </body>
+</html>
